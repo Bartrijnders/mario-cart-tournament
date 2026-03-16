@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F0EEE9;
-  --foreground: #2C2C2A;
+  --background: #091B2A;
+  --foreground: #FFFFFF;
 }
 
 body {
@@ -15,10 +15,10 @@ body {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
-/* Checkered flag pattern - very subtle */
+/* Checkered flag pattern - subtle on dark */
 .checkered-bg {
   background-image:
-    repeating-conic-gradient(#00000008 0% 25%, transparent 0% 50%);
+    repeating-conic-gradient(rgba(255,255,255,0.04) 0% 25%, transparent 0% 50%);
   background-size: 20px 20px;
 }
 
@@ -28,52 +28,57 @@ body {
     -55deg,
     transparent,
     transparent 8px,
-    rgba(255,255,255,0.08) 8px,
-    rgba(255,255,255,0.08) 16px
+    rgba(255,255,255,0.04) 8px,
+    rgba(255,255,255,0.04) 16px
   );
 }
 
-/* Card shadow */
+/* Card - light navy */
 .card {
-  background: white;
+  background: #0F2A3E;
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 0 0 1px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* Gold/silver/bronze gradients for podium rows */
+/* Gold/silver/teal gradients for podium rows */
 .podium-1 {
-  background: linear-gradient(to right, #FFF8E6, #FFFBF0);
-  border-left: 4px solid #BA7517;
+  background: linear-gradient(to right, rgba(247,212,72,0.12), rgba(247,212,72,0.04));
+  border-left: 4px solid #F7D448;
 }
 .podium-2 {
-  background: linear-gradient(to right, #F5F5F5, #FAFAFA);
-  border-left: 4px solid #888780;
+  background: linear-gradient(to right, rgba(129,129,129,0.1), rgba(129,129,129,0.03));
+  border-left: 4px solid #818181;
 }
 .podium-3 {
-  background: linear-gradient(to right, #FFF2EE, #FFF8F6);
-  border-left: 4px solid #D85A30;
+  background: linear-gradient(to right, rgba(39,173,160,0.1), rgba(39,173,160,0.03));
+  border-left: 4px solid #27ADA0;
 }
 
-/* Gradient button */
+/* Gold button (primary CTA) */
 .btn-primary {
-  background: linear-gradient(135deg, #E8622A 0%, #D85A30 50%, #C44E22 100%);
-  box-shadow: 0 4px 14px rgba(216, 90, 48, 0.4);
+  background: linear-gradient(135deg, #F9DC5A 0%, #F7D448 50%, #E2C142 100%);
+  box-shadow: 0 4px 14px rgba(247, 212, 72, 0.3);
+  color: #091B2A !important;
   transition: all 0.15s ease;
 }
 .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(216, 90, 48, 0.5);
+  box-shadow: 0 6px 20px rgba(247, 212, 72, 0.45);
   transform: translateY(-1px);
 }
 .btn-primary:active:not(:disabled) {
   transform: translateY(0);
 }
 
+/* Teal button (active/warning) */
 .btn-warning {
-  background: linear-gradient(135deg, #F5AB2A 0%, #EF9F27 50%, #D88F1A 100%);
-  box-shadow: 0 4px 14px rgba(239, 159, 39, 0.4);
+  background: linear-gradient(135deg, #2EC4B6 0%, #27ADA0 50%, #1E9088 100%);
+  box-shadow: 0 4px 14px rgba(39, 173, 160, 0.3);
   transition: all 0.15s ease;
 }
 .btn-warning:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(239, 159, 39, 0.5);
+  box-shadow: 0 6px 20px rgba(39, 173, 160, 0.45);
   transform: translateY(-1px);
+}
+.btn-warning:active:not(:disabled) {
+  transform: translateY(0);
 }

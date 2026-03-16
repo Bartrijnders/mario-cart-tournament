@@ -36,8 +36,8 @@ export default function LeaderboardPage() {
 
   if (!data) {
     return (
-      <div className="flex items-center justify-center min-h-screen" style={{ background: "#F0EEE9" }}>
-        <p className="text-lg font-display" style={{ color: "#888780" }}>Laden...</p>
+      <div className="flex items-center justify-center min-h-screen" style={{ background: "#091B2A" }}>
+        <p className="text-lg font-display" style={{ color: "#818181" }}>Laden...</p>
       </div>
     );
   }
@@ -57,10 +57,10 @@ export default function LeaderboardPage() {
 
   const bannerGradient =
     tournament.status === "open"
-      ? "linear-gradient(135deg, #3a6b1a 0%, #4a8520 40%, #639922 100%)"
+      ? "linear-gradient(135deg, #091B2A 0%, #0F2A3E 60%, #27ADA0 100%)"
       : tournament.status === "finale"
-      ? "linear-gradient(135deg, #a06b0a 0%, #c88010 40%, #EF9F27 100%)"
-      : "linear-gradient(135deg, #444442 0%, #666664 100%)";
+      ? "linear-gradient(135deg, #091B2A 0%, #132F45 60%, #F7D448 100%)"
+      : "linear-gradient(135deg, #091B2A 0%, #0F2A3E 100%)";
 
   const statusText =
     tournament.status === "open"
@@ -72,7 +72,7 @@ export default function LeaderboardPage() {
   const positionEmoji: Record<number, string> = { 1: "🥇", 2: "🥈", 3: "🥉" };
 
   return (
-    <div className="min-h-screen" style={{ background: "#F0EEE9" }}>
+    <div className="min-h-screen" style={{ background: "#091B2A" }}>
       {/* Hero banner */}
       <div className="racing-stripe checkered-bg" style={{ background: bannerGradient }}>
         <div className="px-4 lg:px-6 py-4 lg:py-5">
@@ -86,7 +86,7 @@ export default function LeaderboardPage() {
             <a
               href="/admin"
               className="text-xs px-3 py-1.5 rounded-lg font-semibold"
-              style={{ background: "rgba(255,255,255,0.15)", color: "white" }}
+              style={{ background: "rgba(255,255,255,0.12)", color: "white" }}
             >
               Admin →
             </a>
@@ -108,10 +108,10 @@ export default function LeaderboardPage() {
               ].map((stat) => (
                 <div key={stat.label} className="card flex-1 p-3 lg:p-4 text-center">
                   <div className="text-lg lg:text-xl mb-0.5">{stat.icon}</div>
-                  <div className="font-display text-xl lg:text-2xl" style={{ color: "#D85A30" }}>
+                  <div className="font-display text-xl lg:text-2xl" style={{ color: "#F7D448" }}>
                     {stat.value}
                   </div>
-                  <div className="text-xs" style={{ color: "#888780" }}>{stat.label}</div>
+                  <div className="text-xs" style={{ color: "#818181" }}>{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -124,13 +124,13 @@ export default function LeaderboardPage() {
                     key={race.id}
                     className="rounded-2xl p-4 lg:p-5"
                     style={{
-                      background: "linear-gradient(135deg, #1e1e1c 0%, #2C2C2A 100%)",
-                      boxShadow: "0 0 0 2px #EF9F27, 0 8px 24px rgba(239,159,39,0.2)",
+                      background: "linear-gradient(135deg, #091B2A 0%, #132F45 100%)",
+                      boxShadow: "0 0 0 2px #F7D448, 0 8px 24px rgba(247,212,72,0.12)",
                     }}
                   >
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#EF9F27" }} />
-                      <span className="font-display text-sm tracking-wide" style={{ color: "#EF9F27" }}>
+                      <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#F7D448" }} />
+                      <span className="font-display text-sm tracking-wide" style={{ color: "#F7D448" }}>
                         RACE #{race.raceNumber} — NU BEZIG
                       </span>
                     </div>
@@ -146,14 +146,14 @@ export default function LeaderboardPage() {
                           <div
                             key={pid}
                             className="flex items-center gap-2 rounded-xl p-2.5"
-                            style={{ background: "rgba(255,255,255,0.07)" }}
+                            style={{ background: "rgba(255,255,255,0.06)" }}
                           >
                             <Avatar character={player.character} size="sm" />
                             <div className="min-w-0">
                               <div className="text-sm font-semibold text-white truncate">{player.name}</div>
                               {standing && standing.racesPlayed > 0 ? (
                                 <div className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-                                  <span className="font-bold" style={{ color: "#EF9F27" }}>
+                                  <span className="font-bold" style={{ color: "#F7D448" }}>
                                     {standing.averagePoints.toFixed(1)}
                                   </span>{" "}
                                   gem. · {standing.racesPlayed}r · {standing.wins}w
@@ -173,24 +173,24 @@ export default function LeaderboardPage() {
 
             {/* Kwalificatie info */}
             <div className="flex flex-wrap gap-2 mb-3">
-              <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: "#EF9F2725", color: "#BA7517", border: "1px solid #EF9F2740" }}>
+              <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: "rgba(247,212,72,0.1)", color: "#E2C142", border: "1px solid rgba(247,212,72,0.25)" }}>
                 ⭐ Min. 3 races om te kwalificeren
               </span>
-              <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: "#D85A3025", color: "#D85A30", border: "1px solid #D85A3040" }}>
+              <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: "rgba(39,173,160,0.1)", color: "#27ADA0", border: "1px solid rgba(39,173,160,0.25)" }}>
                 🏆 Top 4 naar finale
               </span>
             </div>
 
             {/* Klassement */}
             <div className="card overflow-hidden">
-              <div className="px-4 lg:px-5 py-3 lg:py-4" style={{ borderBottom: "1px solid #f0ede8" }}>
-                <h2 className="font-display text-lg lg:text-xl tracking-wide" style={{ color: "#2C2C2A" }}>
+              <div className="px-4 lg:px-5 py-3 lg:py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", background: "#132F45" }}>
+                <h2 className="font-display text-lg lg:text-xl tracking-wide text-white">
                   KLASSEMENT
                 </h2>
               </div>
 
               {standings.length === 0 ? (
-                <div className="p-8 text-center" style={{ color: "#888780" }}>
+                <div className="p-8 text-center" style={{ color: "#818181" }}>
                   Nog geen spelers ingeschreven
                 </div>
               ) : (
@@ -198,13 +198,13 @@ export default function LeaderboardPage() {
                   {standings.map((entry, index) => {
                     const pos = index + 1;
                     const podiumClass = pos === 1 ? "podium-1" : pos === 2 ? "podium-2" : pos === 3 ? "podium-3" : "";
-                    const medalColor = pos === 1 ? "#BA7517" : pos === 2 ? "#888780" : pos === 3 ? "#D85A30" : "#aaa";
+                    const medalColor = pos === 1 ? "#F7D448" : pos === 2 ? "#818181" : pos === 3 ? "#27ADA0" : "#818181";
 
                     return (
                       <div
                         key={entry.player.id}
                         className={`flex items-center gap-3 lg:gap-4 px-4 lg:px-5 py-3 lg:py-3.5 ${podiumClass}`}
-                        style={pos > 3 ? { borderBottom: "1px solid #f0ede8" } : { borderBottom: "1px solid rgba(0,0,0,0.05)" }}
+                        style={pos > 3 ? { borderBottom: "1px solid rgba(255,255,255,0.07)" } : { borderBottom: "1px solid rgba(255,255,255,0.05)" }}
                       >
                         {/* Position */}
                         <div className="w-8 flex-shrink-0 text-center">
@@ -218,32 +218,32 @@ export default function LeaderboardPage() {
                         <Avatar character={entry.player.character} size="md" />
 
                         <div className="flex-1 min-w-0">
-                          <div className="font-semibold truncate text-sm lg:text-base">{entry.player.name}</div>
-                          <div className="text-xs truncate" style={{ color: "#888780" }}>{entry.player.character.name}</div>
+                          <div className="font-semibold truncate text-sm lg:text-base text-white">{entry.player.name}</div>
+                          <div className="text-xs truncate" style={{ color: "#818181" }}>{entry.player.character.name}</div>
                         </div>
 
                         {/* Score */}
                         <div className="text-right flex-shrink-0">
-                          <div className="font-display text-lg lg:text-2xl" style={{ color: pos <= 3 ? medalColor : "#D85A30" }}>
+                          <div className="font-display text-lg lg:text-2xl" style={{ color: pos <= 3 ? medalColor : "#F7D448" }}>
                             {entry.averagePoints.toFixed(1)}
                           </div>
-                          <div className="text-xs" style={{ color: "#888780" }}>gem.</div>
+                          <div className="text-xs" style={{ color: "#818181" }}>gem.</div>
                         </div>
 
                         <div className="text-right w-10 lg:w-12 flex-shrink-0 hidden sm:block">
-                          <div className="font-semibold text-sm">{entry.racesPlayed}</div>
-                          <div className="text-xs" style={{ color: "#888780" }}>races</div>
+                          <div className="font-semibold text-sm text-white">{entry.racesPlayed}</div>
+                          <div className="text-xs" style={{ color: "#818181" }}>races</div>
                         </div>
 
                         <div className="text-right w-10 lg:w-12 flex-shrink-0 hidden sm:block">
-                          <div className="font-semibold text-sm">{entry.wins}</div>
-                          <div className="text-xs" style={{ color: "#888780" }}>overw.</div>
+                          <div className="font-semibold text-sm text-white">{entry.wins}</div>
+                          <div className="text-xs" style={{ color: "#818181" }}>overw.</div>
                         </div>
 
                         {entry.qualified && (
                           <span
                             className="text-xs px-2 py-0.5 rounded-full font-bold flex-shrink-0"
-                            style={{ background: "#63992222", color: "#639922", border: "1px solid #63992240" }}
+                            style={{ background: "rgba(39,173,160,0.15)", color: "#27ADA0", border: "1px solid rgba(39,173,160,0.3)" }}
                           >
                             Q
                           </span>
@@ -259,13 +259,13 @@ export default function LeaderboardPage() {
           {/* QR Code sidebar */}
           <div className="w-full lg:w-48 xl:w-52 lg:flex-shrink-0">
             <div className="card p-4 lg:p-5 lg:sticky lg:top-6 text-center">
-              <p className="font-display text-sm tracking-wide mb-3" style={{ color: "#2C2C2A" }}>
+              <p className="font-display text-sm tracking-wide mb-3 text-white">
                 SCAN & SPEEL MEE
               </p>
-              <div className="flex justify-center">
-                <QRCodeSVG value={joinUrl} size={140} />
+              <div className="flex justify-center rounded-xl overflow-hidden">
+                <QRCodeSVG value={joinUrl} size={140} fgColor="#F7D448" bgColor="#091B2A" />
               </div>
-              <p className="text-xs mt-3 break-all" style={{ color: "#888780" }}>{joinUrl}</p>
+              <p className="text-xs mt-3 break-all" style={{ color: "#818181" }}>{joinUrl}</p>
             </div>
           </div>
         </div>

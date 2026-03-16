@@ -49,18 +49,18 @@ export default function JoinPage() {
   if (success) {
     const char = CHARACTERS.find((c) => c.id === selectedCharId)!;
     return (
-      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#F0EEE9" }}>
+      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#091B2A" }}>
         <div className="card p-8 max-w-sm w-full text-center">
           <div className="text-5xl mb-4">🎉</div>
           <div className="flex justify-center mb-4">
             <Avatar character={char} size="xl" />
           </div>
-          <h1 className="font-display text-2xl tracking-wide mb-1" style={{ color: "#2C2C2A" }}>JE DOET MEE!</h1>
+          <h1 className="font-display text-2xl tracking-wide mb-1 text-white">JE DOET MEE!</h1>
           <p className="text-xl font-bold mb-1" style={{ color: char.color }}>{name}</p>
-          <p className="mb-5" style={{ color: "#888780" }}>als {char.name}</p>
+          <p className="mb-5" style={{ color: "#818181" }}>als {char.name}</p>
           <div
             className="rounded-xl px-4 py-3 text-sm font-semibold"
-            style={{ background: "#EF9F2715", color: "#BA7517", border: "1px solid #EF9F2730" }}
+            style={{ background: "rgba(247,212,72,0.08)", color: "#E2C142", border: "1px solid rgba(247,212,72,0.2)" }}
           >
             🏁 Wacht op je eerste race. Succes!
           </div>
@@ -73,11 +73,11 @@ export default function JoinPage() {
   const selectedChar = CHARACTERS.find((c) => c.id === selectedCharId);
 
   return (
-    <div className="min-h-screen" style={{ background: "#F0EEE9" }}>
+    <div className="min-h-screen" style={{ background: "#091B2A" }}>
       {/* Header */}
       <div
         className="racing-stripe checkered-bg px-4 py-5 text-center"
-        style={{ background: "linear-gradient(135deg, #1e1e1c 0%, #2C2C2A 80%, #3a3a38 100%)" }}
+        style={{ background: "linear-gradient(135deg, #091B2A 0%, #132F45 80%, #0F2A3E 100%)" }}
       >
         <h1 className="font-display text-2xl text-white tracking-wider mb-0.5">MARIO KART TOERNOOI</h1>
         <p className="text-white/60 text-sm">The DOC Spelletjesavond</p>
@@ -87,7 +87,7 @@ export default function JoinPage() {
         {isClosed && (
           <div
             className="rounded-xl px-4 py-3 mb-5 text-center font-semibold"
-            style={{ background: "#EF9F2720", color: "#BA7517", border: "1px solid #EF9F2740" }}
+            style={{ background: "rgba(247,212,72,0.08)", color: "#E2C142", border: "1px solid rgba(247,212,72,0.2)" }}
           >
             🔒 Inschrijvingen zijn gesloten
           </div>
@@ -96,7 +96,7 @@ export default function JoinPage() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Naam */}
           <div className="card p-4">
-            <label className="block font-bold mb-2 text-sm" style={{ color: "#2C2C2A" }}>
+            <label className="block font-bold mb-2 text-sm text-white">
               🏎️ Jouw naam
             </label>
             <input
@@ -105,8 +105,12 @@ export default function JoinPage() {
               onChange={(e) => setName(e.target.value)}
               placeholder="Voer je naam in..."
               disabled={isClosed}
-              className="w-full text-base px-4 py-3 rounded-xl border-2 bg-gray-50 focus:outline-none transition-all disabled:opacity-50"
-              style={{ borderColor: name.trim() ? "#D85A30" : "#e5e7eb" }}
+              className="w-full text-base px-4 py-3 rounded-xl border-2 focus:outline-none transition-all disabled:opacity-50"
+              style={{
+                borderColor: name.trim() ? "#F7D448" : "rgba(255,255,255,0.15)",
+                background: "#091B2A",
+                color: "white",
+              }}
               maxLength={30}
               required
             />
@@ -114,7 +118,7 @@ export default function JoinPage() {
 
           {/* Personage grid */}
           <div className="card p-4">
-            <label className="block font-bold mb-3 text-sm" style={{ color: "#2C2C2A" }}>
+            <label className="block font-bold mb-3 text-sm text-white">
               🎮 Kies je personage
               {selectedChar && (
                 <span className="ml-2 font-normal" style={{ color: selectedChar.color }}>
@@ -134,8 +138,8 @@ export default function JoinPage() {
                     disabled={!!taken || isClosed}
                     className="rounded-xl p-2.5 text-center transition-all relative overflow-hidden"
                     style={{
-                      border: `2px solid ${selected ? char.color : taken ? "#e5e7eb" : "#e5e7eb"}`,
-                      background: selected ? `${char.color}18` : taken ? "#f9f9f9" : "white",
+                      border: `2px solid ${selected ? char.color : taken ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.1)"}`,
+                      background: selected ? `${char.color}18` : taken ? "#0A1F30" : "#0F2A3E",
                       opacity: taken ? 0.45 : 1,
                       boxShadow: selected ? `0 0 0 3px ${char.color}30, 0 4px 12px ${char.color}25` : "none",
                     }}
@@ -143,11 +147,11 @@ export default function JoinPage() {
                     <div className="flex justify-center mb-1.5">
                       <Avatar character={char} size="lg" />
                     </div>
-                    <div className="text-xs font-semibold leading-tight" style={{ color: taken ? "#aaa" : "#2C2C2A" }}>
+                    <div className="text-xs font-semibold leading-tight" style={{ color: taken ? "#818181" : "#FFFFFF" }}>
                       {char.name}
                     </div>
                     {taken && (
-                      <div className="text-xs mt-0.5 truncate" style={{ color: "#999" }}>
+                      <div className="text-xs mt-0.5 truncate" style={{ color: "#818181" }}>
                         {taken}
                       </div>
                     )}
@@ -174,7 +178,7 @@ export default function JoinPage() {
           <button
             type="submit"
             disabled={loading || isClosed || !name.trim() || !selectedCharId}
-            className="btn-primary w-full py-4 text-lg font-bold rounded-2xl text-white disabled:opacity-40 disabled:shadow-none disabled:transform-none"
+            className="btn-primary w-full py-4 text-lg font-bold rounded-2xl disabled:opacity-40 disabled:shadow-none disabled:transform-none"
           >
             {loading ? "Bezig..." : "🏁 Doe mee!"}
           </button>

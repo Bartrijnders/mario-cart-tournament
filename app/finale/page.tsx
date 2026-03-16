@@ -24,17 +24,17 @@ export default function FinalePage() {
   }, []);
 
   if (!tournament) return (
-    <div className="flex items-center justify-center min-h-screen" style={{ background: "#F0EEE9" }}>
-      <p className="font-display tracking-wide" style={{ color: "#888780" }}>Laden...</p>
+    <div className="flex items-center justify-center min-h-screen" style={{ background: "#091B2A" }}>
+      <p className="font-display tracking-wide" style={{ color: "#818181" }}>Laden...</p>
     </div>
   );
 
   if (tournament.status === "open") {
     return (
-      <div className="flex items-center justify-center min-h-screen px-4" style={{ background: "#F0EEE9" }}>
+      <div className="flex items-center justify-center min-h-screen px-4" style={{ background: "#091B2A" }}>
         <div className="text-center">
-          <p className="text-lg mb-4" style={{ color: "#888780" }}>De finale is nog niet begonnen</p>
-          <a href="/admin" className="btn-primary px-6 py-3 rounded-xl text-white font-bold inline-block">
+          <p className="text-lg mb-4" style={{ color: "#818181" }}>De finale is nog niet begonnen</p>
+          <a href="/admin" className="btn-primary px-6 py-3 rounded-xl font-bold inline-block">
             Naar Admin
           </a>
         </div>
@@ -52,17 +52,17 @@ export default function FinalePage() {
     return (
       <div
         className="min-h-screen flex items-center justify-center px-4 racing-stripe"
-        style={{ background: "linear-gradient(135deg, #1e1e1c 0%, #2C2C2A 60%, #3a3a00 100%)" }}
+        style={{ background: "linear-gradient(135deg, #091B2A 0%, #0F2A3E 50%, #132F45 100%)" }}
       >
         <div className="text-center">
           <div className="text-7xl mb-6 animate-bounce">🏆</div>
-          <h1 className="font-display text-4xl lg:text-6xl text-white tracking-widest mb-6">KAMPIOEN!</h1>
+          <h1 className="font-display text-4xl lg:text-6xl tracking-widest mb-6" style={{ color: "#F7D448" }}>KAMPIOEN!</h1>
           {winner && (
             <>
               <div className="flex justify-center mb-4">
                 <div
                   className="p-2 rounded-full"
-                  style={{ background: `${winner.character.color}30`, boxShadow: `0 0 40px ${winner.character.color}60` }}
+                  style={{ background: `${winner.character.color}20`, boxShadow: `0 0 60px ${winner.character.color}50, 0 0 120px rgba(247,212,72,0.2)` }}
                 >
                   <Avatar character={winner.character} size="xl" />
                 </div>
@@ -70,12 +70,12 @@ export default function FinalePage() {
               <p className="text-2xl lg:text-4xl font-bold mb-2" style={{ color: winner.character.color }}>
                 {winner.name}
               </p>
-              <p className="text-base lg:text-lg mb-8" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <p className="text-base lg:text-lg mb-8" style={{ color: "rgba(255,255,255,0.5)" }}>
                 als {winner.character.name}
               </p>
             </>
           )}
-          <a href="/" className="btn-primary px-8 py-3 rounded-2xl text-white font-bold inline-block text-lg">
+          <a href="/" className="btn-primary px-8 py-3 rounded-2xl font-bold inline-block text-lg">
             🏁 Terug naar Leaderboard
           </a>
         </div>
@@ -114,19 +114,20 @@ export default function FinalePage() {
   }
 
   const assignedPlayerIds = new Set(Object.values(positions));
+  const posColors: Record<number, string> = { 1: "#F7D448", 2: "#818181", 3: "#27ADA0", 4: "#4A6A80" };
 
   return (
-    <div className="min-h-screen" style={{ background: "#F0EEE9" }}>
+    <div className="min-h-screen" style={{ background: "#091B2A" }}>
       {/* Header */}
       <div
         className="racing-stripe checkered-bg px-4 py-4 lg:py-5"
-        style={{ background: "linear-gradient(135deg, #a06b0a 0%, #c88010 40%, #EF9F27 100%)" }}
+        style={{ background: "linear-gradient(135deg, #091B2A 0%, #132F45 60%, #F7D448 100%)" }}
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <h1 className="font-display text-white text-xl lg:text-2xl tracking-widest">⚡ GRAND FINAL ⚡</h1>
           <div className="flex gap-2">
-            <a href="/" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.2)", color: "white" }}>Leaderboard</a>
-            <a href="/admin" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.2)", color: "white" }}>Admin</a>
+            <a href="/" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.12)", color: "white" }}>Leaderboard</a>
+            <a href="/admin" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.12)", color: "white" }}>Admin</a>
           </div>
         </div>
       </div>
@@ -136,7 +137,7 @@ export default function FinalePage() {
 
           {/* Finalisten */}
           <div className="card p-4 lg:p-5 mb-4 lg:mb-5">
-            <h2 className="font-display tracking-wide mb-3 text-sm" style={{ color: "#888780" }}>FINALISTEN</h2>
+            <h2 className="font-display tracking-wide mb-3 text-sm" style={{ color: "#818181" }}>FINALISTEN</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
               {qualifiedPlayers.map((player) => {
                 const wins = winsPerPlayer[player.id] ?? 0;
@@ -145,15 +146,15 @@ export default function FinalePage() {
                     key={player.id}
                     className="text-center rounded-xl p-3"
                     style={{
-                      background: wins > 0 ? `${player.character.color}12` : "#f8f7f4",
-                      border: `2px solid ${wins > 0 ? player.character.color + "40" : "#ede9e3"}`,
+                      background: wins > 0 ? `${player.character.color}12` : "#132F45",
+                      border: `2px solid ${wins > 0 ? player.character.color + "40" : "rgba(255,255,255,0.08)"}`,
                     }}
                   >
                     <div className="flex justify-center mb-2">
                       <Avatar character={player.character} size="lg" />
                     </div>
-                    <div className="text-sm font-bold truncate">{player.name}</div>
-                    <div className="text-xs" style={{ color: "#888780" }}>{player.character.name}</div>
+                    <div className="text-sm font-bold truncate text-white">{player.name}</div>
+                    <div className="text-xs" style={{ color: "#818181" }}>{player.character.name}</div>
                     {wins > 0 && (
                       <div className="mt-1.5">
                         {Array.from({ length: wins }).map((_, i) => (
@@ -175,8 +176,8 @@ export default function FinalePage() {
                 return (
                   <div key={finaleRace.raceNumber} className="card p-4 opacity-40">
                     <div className="flex items-center justify-between">
-                      <span className="font-display tracking-wide text-sm" style={{ color: "#888780" }}>FINALE RACE 3</span>
-                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "#88878022", color: "#888780" }}>Niet nodig</span>
+                      <span className="font-display tracking-wide text-sm" style={{ color: "#818181" }}>FINALE RACE 3</span>
+                      <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(129,129,129,0.1)", color: "#818181" }}>Niet nodig</span>
                     </div>
                   </div>
                 );
@@ -190,18 +191,18 @@ export default function FinalePage() {
                 <div
                   key={finaleRace.raceNumber}
                   className="card p-4 lg:p-5"
-                  style={isNext ? { boxShadow: "0 0 0 2px #EF9F27, 0 4px 16px rgba(239,159,39,0.15)" } : undefined}
+                  style={isNext ? { boxShadow: "0 0 0 2px #F7D448, 0 4px 16px rgba(247,212,72,0.12)" } : undefined}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-display tracking-wide text-base lg:text-lg" style={{ color: "#2C2C2A" }}>
+                    <span className="font-display tracking-wide text-base lg:text-lg text-white">
                       FINALE RACE {finaleRace.raceNumber}
                     </span>
                     <span
                       className="text-xs px-2.5 py-1 rounded-full font-bold"
                       style={{
-                        background: isDone ? "#63992222" : isNext ? "#EF9F2722" : "#88878022",
-                        color: isDone ? "#639922" : isNext ? "#BA7517" : "#888780",
-                        border: `1px solid ${isDone ? "#63992240" : isNext ? "#EF9F2740" : "#88878030"}`,
+                        background: isDone ? "rgba(39,173,160,0.12)" : isNext ? "rgba(247,212,72,0.12)" : "rgba(129,129,129,0.08)",
+                        color: isDone ? "#27ADA0" : isNext ? "#E2C142" : "#818181",
+                        border: `1px solid ${isDone ? "rgba(39,173,160,0.25)" : isNext ? "rgba(247,212,72,0.25)" : "rgba(129,129,129,0.15)"}`,
                       }}
                     >
                       {isDone ? "✓ Gespeeld" : isNext ? "▶ Volgende" : "Later"}
@@ -209,7 +210,7 @@ export default function FinalePage() {
                   </div>
 
                   {isDone && finaleRace.results && (
-                    <div className="space-y-2 mb-3 p-3 rounded-xl" style={{ background: "#f8f7f4" }}>
+                    <div className="space-y-2 mb-3 p-3 rounded-xl" style={{ background: "#132F45" }}>
                       {[...finaleRace.results].sort((a, b) => a.position - b.position).map((result) => {
                         const player = tournament.players.find((p) => p.id === result.playerId);
                         if (!player) return null;
@@ -218,8 +219,8 @@ export default function FinalePage() {
                           <div key={result.playerId} className="flex items-center gap-2 text-sm">
                             <span className="w-6 flex-shrink-0 text-center">{posEmoji}</span>
                             <Avatar character={player.character} size="sm" />
-                            <span className="flex-1 truncate font-semibold">{player.name}</span>
-                            <span className="font-bold flex-shrink-0" style={{ color: "#D85A30" }}>{result.points}pt</span>
+                            <span className="flex-1 truncate font-semibold text-white">{player.name}</span>
+                            <span className="font-bold flex-shrink-0" style={{ color: "#F7D448" }}>{result.points}pt</span>
                           </div>
                         );
                       })}
@@ -243,13 +244,12 @@ export default function FinalePage() {
                         </p>
                       )}
                       {Array.from({ length: qualifiedPlayers.length }, (_, i) => i + 1).map((pos) => {
-                        const posColors: Record<number, string> = { 1: "#BA7517", 2: "#888780", 3: "#D85A30", 4: "#5F5E5A" };
                         const selectedPlayer = positions[pos] ? qualifiedPlayers.find((p) => p.id === positions[pos]) : null;
                         return (
                           <div key={pos} className="flex items-center gap-2 lg:gap-3">
                             <div
-                              className="w-9 h-9 rounded-full flex items-center justify-center text-white font-display flex-shrink-0 shadow-md"
-                              style={{ backgroundColor: posColors[pos] }}
+                              className="w-9 h-9 rounded-full flex items-center justify-center font-display flex-shrink-0 shadow-md"
+                              style={{ backgroundColor: posColors[pos], color: pos === 1 ? "#091B2A" : "white" }}
                             >
                               {pos}
                             </div>
@@ -257,7 +257,11 @@ export default function FinalePage() {
                               value={positions[pos] ?? ""}
                               onChange={(e) => setPositions((prev) => ({ ...prev, [pos]: e.target.value }))}
                               className="flex-1 min-w-0 px-3 py-2 rounded-xl border-2 text-sm transition-all"
-                              style={{ borderColor: positions[pos] ? posColors[pos] : "#e5e7eb", background: "white" }}
+                              style={{
+                                borderColor: positions[pos] ? posColors[pos] : "rgba(255,255,255,0.15)",
+                                background: "#091B2A",
+                                color: "white",
+                              }}
                             >
                               <option value="">— Kies speler —</option>
                               {qualifiedPlayers.map((player) => {
@@ -269,7 +273,7 @@ export default function FinalePage() {
                                 );
                               })}
                             </select>
-                            <span className="text-sm font-bold w-12 text-right flex-shrink-0" style={{ color: "#D85A30" }}>
+                            <span className="text-sm font-bold w-12 text-right flex-shrink-0" style={{ color: "#F7D448" }}>
                               +{POINTS_MAP[pos]}pt
                             </span>
                             {selectedPlayer && <Avatar character={selectedPlayer.character} size="sm" />}
@@ -279,7 +283,8 @@ export default function FinalePage() {
                       <div className="flex gap-2 mt-2">
                         <button
                           onClick={() => { setActiveScoreRace(null); setPositions({}); setError(null); }}
-                          className="flex-1 py-2.5 text-sm font-semibold rounded-xl border-2 border-gray-200 bg-white"
+                          className="flex-1 py-2.5 text-sm font-semibold rounded-xl"
+                          style={{ border: "2px solid rgba(255,255,255,0.12)", background: "#0A1F30", color: "white" }}
                         >
                           Annuleren
                         </button>

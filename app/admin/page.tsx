@@ -35,8 +35,8 @@ export default function AdminPage() {
   }, []);
 
   if (!data) return (
-    <div className="flex items-center justify-center min-h-screen" style={{ background: "#F0EEE9" }}>
-      <p className="font-display tracking-wide" style={{ color: "#888780" }}>Laden...</p>
+    <div className="flex items-center justify-center min-h-screen" style={{ background: "#091B2A" }}>
+      <p className="font-display tracking-wide" style={{ color: "#818181" }}>Laden...</p>
     </div>
   );
 
@@ -118,15 +118,15 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "#F0EEE9" }}>
+    <div className="min-h-screen" style={{ background: "#091B2A" }}>
       {/* Header */}
       <div
         className="racing-stripe checkered-bg px-4 lg:px-6 py-4"
-        style={{ background: "linear-gradient(135deg, #1e1e1c 0%, #2C2C2A 100%)" }}
+        style={{ background: "linear-gradient(135deg, #091B2A 0%, #0F2A3E 100%)" }}
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <h1 className="font-display text-white text-lg lg:text-xl tracking-wide">ADMIN</h1>
-          <a href="/" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.12)", color: "white" }}>
+          <a href="/" className="text-xs px-3 py-1.5 rounded-lg font-semibold" style={{ background: "rgba(255,255,255,0.1)", color: "white" }}>
             ← Leaderboard
           </a>
         </div>
@@ -145,14 +145,14 @@ export default function AdminPage() {
             {/* Nieuwe race */}
             {tournament.status === "open" && (
               <div className="card p-4 lg:p-5">
-                <h2 className="font-display tracking-wide mb-3" style={{ color: "#2C2C2A" }}>
+                <h2 className="font-display tracking-wide mb-3 text-white">
                   🏎️ NIEUWE RACE
                 </h2>
-                <p className="text-sm mb-3" style={{ color: "#888780" }}>
+                <p className="text-sm mb-3" style={{ color: "#818181" }}>
                   Selecteer 2–4 spelers ({selectedPlayerIds.length}/4)
                 </p>
                 {availablePlayers.length === 0 ? (
-                  <p className="text-sm py-4 text-center" style={{ color: "#888780" }}>Geen beschikbare spelers</p>
+                  <p className="text-sm py-4 text-center" style={{ color: "#818181" }}>Geen beschikbare spelers</p>
                 ) : (
                   <div className="grid grid-cols-2 gap-2 mb-4">
                     {availablePlayers.map((player) => {
@@ -161,15 +161,15 @@ export default function AdminPage() {
                         <button
                           key={player.id}
                           onClick={() => togglePlayer(player.id)}
-                          className="flex items-center gap-2 p-2.5 rounded-xl border-2 text-left transition-all"
+                          className="flex items-center gap-2 p-2.5 rounded-xl text-left transition-all"
                           style={{
-                            borderColor: selected ? player.character.color : "#e5e7eb",
-                            background: selected ? `${player.character.color}12` : "white",
+                            border: `2px solid ${selected ? player.character.color : "rgba(255,255,255,0.1)"}`,
+                            background: selected ? `${player.character.color}12` : "#0A1F30",
                             boxShadow: selected ? `0 0 0 2px ${player.character.color}25` : "none",
                           }}
                         >
                           <Avatar character={player.character} size="sm" />
-                          <span className="text-sm font-semibold truncate">{player.name}</span>
+                          <span className="text-sm font-semibold truncate text-white">{player.name}</span>
                         </button>
                       );
                     })}
@@ -178,14 +178,15 @@ export default function AdminPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={autoFill}
-                    className="flex-1 py-2.5 text-sm font-semibold rounded-xl border-2 border-gray-200 bg-white hover:bg-gray-50 transition-colors"
+                    className="flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors"
+                    style={{ border: "2px solid rgba(255,255,255,0.12)", background: "#0A1F30", color: "white" }}
                   >
                     🎲 Auto-vullen
                   </button>
                   <button
                     onClick={startRace}
                     disabled={loadingRace || selectedPlayerIds.length < 2}
-                    className="btn-primary flex-1 py-2.5 text-sm font-bold rounded-xl text-white disabled:opacity-40 disabled:shadow-none disabled:transform-none"
+                    className="btn-primary flex-1 py-2.5 text-sm font-bold rounded-xl disabled:opacity-40 disabled:shadow-none disabled:transform-none"
                   >
                     {loadingRace ? "Bezig..." : "🏁 Start Race"}
                   </button>
@@ -195,22 +196,22 @@ export default function AdminPage() {
 
             {/* Actieve races */}
             <div className="card p-4 lg:p-5">
-              <h2 className="font-display tracking-wide mb-3" style={{ color: "#2C2C2A" }}>
+              <h2 className="font-display tracking-wide mb-3 text-white">
                 ⚡ ACTIEVE RACES
               </h2>
               {activeRaces.length === 0 ? (
-                <p className="text-sm py-4 text-center" style={{ color: "#888780" }}>Geen actieve races</p>
+                <p className="text-sm py-4 text-center" style={{ color: "#818181" }}>Geen actieve races</p>
               ) : (
                 <div className="space-y-3">
                   {activeRaces.map((race: Race) => (
-                    <div key={race.id} className="rounded-xl border-2 p-3" style={{ borderColor: "#EF9F2750", background: "#EF9F2708" }}>
+                    <div key={race.id} className="rounded-xl p-3" style={{ border: "2px solid rgba(247,212,72,0.25)", background: "rgba(247,212,72,0.04)" }}>
                       <div className="flex items-center justify-between mb-2">
-                        <span className="font-bold text-sm">Race #{race.raceNumber}</span>
+                        <span className="font-bold text-sm text-white">Race #{race.raceNumber}</span>
                         <span
                           className="text-xs px-2 py-0.5 rounded-full font-semibold"
                           style={{
-                            background: race.status === "racing" ? "#EF9F2725" : "#63992225",
-                            color: race.status === "racing" ? "#BA7517" : "#639922",
+                            background: race.status === "racing" ? "rgba(247,212,72,0.12)" : "rgba(39,173,160,0.12)",
+                            color: race.status === "racing" ? "#E2C142" : "#27ADA0",
                           }}
                         >
                           {race.status === "racing" ? "🟡 Bezig" : "🟢 Lobby"}
@@ -220,17 +221,16 @@ export default function AdminPage() {
                         {race.playerIds.map((pid) => {
                           const p = getPlayer(pid);
                           return p ? (
-                            <div key={pid} className="flex items-center gap-1.5 rounded-lg px-2 py-1" style={{ background: "white" }}>
+                            <div key={pid} className="flex items-center gap-1.5 rounded-lg px-2 py-1" style={{ background: "#0A1F30" }}>
                               <Avatar character={p.character} size="sm" />
-                              <span className="text-xs font-semibold">{p.name}</span>
+                              <span className="text-xs font-semibold text-white">{p.name}</span>
                             </div>
                           ) : null;
                         })}
                       </div>
                       <button
                         onClick={() => router.push(`/race/${race.id}/score`)}
-                        className="w-full py-2 text-sm font-bold rounded-lg text-white"
-                        style={{ background: "linear-gradient(135deg, #E8622A, #D85A30)" }}
+                        className="btn-primary w-full py-2 text-sm font-bold rounded-lg"
                       >
                         Uitslag invoeren →
                       </button>
@@ -242,29 +242,29 @@ export default function AdminPage() {
 
             {/* Race geschiedenis */}
             <div className="card p-4 lg:p-5">
-              <h2 className="font-display tracking-wide mb-3" style={{ color: "#2C2C2A" }}>
+              <h2 className="font-display tracking-wide mb-3 text-white">
                 📋 RECENTE RACES
               </h2>
               {recentRaces.length === 0 ? (
-                <p className="text-sm py-4 text-center" style={{ color: "#888780" }}>Nog geen races gespeeld</p>
+                <p className="text-sm py-4 text-center" style={{ color: "#818181" }}>Nog geen races gespeeld</p>
               ) : (
                 <div className="space-y-2">
                   {recentRaces.map((race: Race) => {
                     const sortedResults = [...(race.results ?? [])].sort((a, b) => a.position - b.position);
                     return (
-                      <div key={race.id} className="rounded-xl p-3" style={{ background: "#f8f7f4", border: "1px solid #ede9e3" }}>
-                        <div className="text-xs font-display tracking-wide mb-2" style={{ color: "#888780" }}>RACE #{race.raceNumber}</div>
+                      <div key={race.id} className="rounded-xl p-3" style={{ background: "#132F45", border: "1px solid rgba(255,255,255,0.07)" }}>
+                        <div className="text-xs font-display tracking-wide mb-2" style={{ color: "#818181" }}>RACE #{race.raceNumber}</div>
                         <div className="space-y-1">
                           {sortedResults.map((result) => {
                             const p = getPlayer(result.playerId);
                             return p ? (
                               <div key={result.playerId} className="flex items-center gap-2 text-sm">
-                                <span className="w-5 font-bold flex-shrink-0" style={{ color: result.position === 1 ? "#BA7517" : "#bbb" }}>
+                                <span className="w-5 font-bold flex-shrink-0" style={{ color: result.position === 1 ? "#F7D448" : "#818181" }}>
                                   {result.position === 1 ? "🥇" : result.position === 2 ? "🥈" : result.position === 3 ? "🥉" : `${result.position}.`}
                                 </span>
                                 <Avatar character={p.character} size="sm" />
-                                <span className="flex-1 truncate font-medium">{p.name}</span>
-                                <span className="font-bold flex-shrink-0" style={{ color: "#D85A30" }}>{result.points}pt</span>
+                                <span className="flex-1 truncate font-medium text-white">{p.name}</span>
+                                <span className="font-bold flex-shrink-0" style={{ color: "#F7D448" }}>{result.points}pt</span>
                               </div>
                             ) : null;
                           })}
@@ -278,7 +278,7 @@ export default function AdminPage() {
 
             {/* Toernooi acties */}
             <div className="card p-4 lg:p-5">
-              <h2 className="font-display tracking-wide mb-3" style={{ color: "#2C2C2A" }}>
+              <h2 className="font-display tracking-wide mb-3 text-white">
                 🎯 TOERNOOI ACTIES
               </h2>
 
@@ -293,7 +293,7 @@ export default function AdminPage() {
                       ⚡ Start Grand Final
                     </button>
                     {!canStartFinale && (
-                      <p className="text-xs mt-1.5" style={{ color: "#888780" }}>
+                      <p className="text-xs mt-1.5" style={{ color: "#818181" }}>
                         {qualifiedCount}/4 spelers gekwalificeerd (min. 3 races)
                       </p>
                     )}
@@ -301,12 +301,12 @@ export default function AdminPage() {
                 )}
 
                 {tournament.status === "open" && finalePickerOpen && (
-                  <div className="rounded-xl border-2 p-4 space-y-3" style={{ borderColor: "#EF9F27", background: "#EF9F2708" }}>
+                  <div className="rounded-xl p-4 space-y-3" style={{ border: "2px solid #F7D448", background: "rgba(247,212,72,0.04)" }}>
                     <div>
-                      <p className="font-bold text-sm mb-1" style={{ color: "#BA7517" }}>
+                      <p className="font-bold text-sm mb-1" style={{ color: "#E2C142" }}>
                         Kies 4 finalisten ({finalePlayerIds.length}/4)
                       </p>
-                      <p className="text-xs" style={{ color: "#888780" }}>
+                      <p className="text-xs" style={{ color: "#818181" }}>
                         Standaard de top 4 — pas aan als iemand eerder naar huis is gegaan.
                       </p>
                     </div>
@@ -317,28 +317,32 @@ export default function AdminPage() {
                           <button
                             key={entry.player.id}
                             onClick={() => toggleFinalePick(entry.player.id)}
-                            className="w-full flex items-center gap-2 px-3 py-2 rounded-xl border-2 text-left transition-all"
+                            className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-left transition-all"
                             style={
                               selected
-                                ? { borderColor: "#EF9F27", background: "#EF9F2718" }
-                                : { borderColor: "#e5e7eb", background: "white" }
+                                ? { border: "2px solid #F7D448", background: "rgba(247,212,72,0.08)" }
+                                : { border: "2px solid rgba(255,255,255,0.1)", background: "#0A1F30" }
                             }
                           >
                             <Avatar character={entry.player.character} size="sm" />
-                            <span className="flex-1 text-sm font-semibold truncate">{entry.player.name}</span>
-                            <span className="text-xs flex-shrink-0" style={{ color: "#888780" }}>
+                            <span className="flex-1 text-sm font-semibold truncate text-white">{entry.player.name}</span>
+                            <span className="text-xs flex-shrink-0" style={{ color: "#818181" }}>
                               {entry.averagePoints.toFixed(1)} · {entry.racesPlayed}r
                             </span>
                             {entry.qualified && (
-                              <span className="text-xs px-1.5 py-0.5 rounded-full flex-shrink-0 font-bold" style={{ background: "#63992222", color: "#639922" }}>Q</span>
+                              <span className="text-xs px-1.5 py-0.5 rounded-full flex-shrink-0 font-bold" style={{ background: "rgba(39,173,160,0.15)", color: "#27ADA0" }}>Q</span>
                             )}
-                            {selected && <span style={{ color: "#EF9F27" }}>✓</span>}
+                            {selected && <span style={{ color: "#F7D448" }}>✓</span>}
                           </button>
                         );
                       })}
                     </div>
                     <div className="flex gap-2">
-                      <button onClick={() => setFinalePickerOpen(false)} className="flex-1 py-2.5 text-sm font-semibold rounded-xl border-2 border-gray-200 bg-white">
+                      <button
+                        onClick={() => setFinalePickerOpen(false)}
+                        className="flex-1 py-2.5 text-sm font-semibold rounded-xl"
+                        style={{ border: "2px solid rgba(255,255,255,0.12)", background: "#0A1F30", color: "white" }}
+                      >
                         Annuleren
                       </button>
                       <button
@@ -361,9 +365,8 @@ export default function AdminPage() {
                 <button
                   onClick={resetTournament}
                   disabled={loadingReset}
-                  className={`w-full py-3 font-bold rounded-xl border-2 transition-all ${
-                    confirmReset ? "bg-red-600 text-white border-red-600" : "bg-white border-gray-300 text-gray-600 hover:border-gray-400"
-                  }`}
+                  className={`w-full py-3 font-bold rounded-xl transition-all ${confirmReset ? "bg-red-600 text-white" : ""}`}
+                  style={!confirmReset ? { border: "2px solid rgba(255,255,255,0.12)", background: "#0A1F30", color: "#818181" } : { border: "2px solid #dc2626" }}
                 >
                   {loadingReset ? "Bezig..." : confirmReset ? "⚠️ Nogmaals klikken om te bevestigen" : "🔄 Reset Toernooi"}
                 </button>
@@ -373,8 +376,8 @@ export default function AdminPage() {
               </div>
 
               {/* Spelers */}
-              <div className="mt-5 pt-4" style={{ borderTop: "1px solid #ede9e3" }}>
-                <h3 className="font-display text-xs tracking-widest mb-3" style={{ color: "#888780" }}>
+              <div className="mt-5 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                <h3 className="font-display text-xs tracking-widest mb-3" style={{ color: "#818181" }}>
                   SPELERS ({tournament.players.length})
                 </h3>
                 <div className="space-y-2">
@@ -383,10 +386,10 @@ export default function AdminPage() {
                     return (
                       <div key={player.id} className="flex items-center gap-2">
                         <Avatar character={player.character} size="sm" />
-                        <span className="text-sm font-semibold flex-1 truncate">{player.name}</span>
-                        <span className="text-xs flex-shrink-0" style={{ color: "#888780" }}>{standing?.racesPlayed ?? 0}r</span>
+                        <span className="text-sm font-semibold flex-1 truncate text-white">{player.name}</span>
+                        <span className="text-xs flex-shrink-0" style={{ color: "#818181" }}>{standing?.racesPlayed ?? 0}r</span>
                         {standing?.qualified && (
-                          <span className="text-xs px-1.5 py-0.5 rounded-full flex-shrink-0 font-bold" style={{ background: "#63992222", color: "#639922" }}>Q</span>
+                          <span className="text-xs px-1.5 py-0.5 rounded-full flex-shrink-0 font-bold" style={{ background: "rgba(39,173,160,0.15)", color: "#27ADA0" }}>Q</span>
                         )}
                         {(standing?.racesPlayed ?? 0) === 0 && (
                           <button
@@ -395,8 +398,8 @@ export default function AdminPage() {
                               await fetch(`/api/players/${player.id}`, { method: "DELETE" });
                               fetchData();
                             }}
-                            className="text-xs px-2 py-0.5 rounded-lg border font-semibold"
-                            style={{ borderColor: "#fca5a5", color: "#ef4444" }}
+                            className="text-xs px-2 py-0.5 rounded-lg font-semibold"
+                            style={{ border: "1px solid rgba(239,68,68,0.4)", color: "#ef4444" }}
                           >
                             ✕
                           </button>
