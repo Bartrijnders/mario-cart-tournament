@@ -1,6 +1,19 @@
 {
   "status": "open",
-  "players": [],
+  "players": [
+    {
+      "id": "5c66cf7b-bd36-47f4-84e2-2fa561e6681d",
+      "name": "Bart",
+      "character": {
+        "id": "mario",
+        "name": "Mario",
+        "color": "#E52222",
+        "abbreviation": "MA",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldMarioEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:10:11.541Z"
+    }
+  ],
   "races": [],
   "finale": null,
   "createdAt": "2026-03-16T13:37:55.905Z"

@@ -141,12 +141,7 @@ export default function JoinPage() {
                     }}
                   >
                     <div className="flex justify-center mb-1.5">
-                      <div
-                        className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md ring-2 ring-white"
-                        style={{ backgroundColor: char.color }}
-                      >
-                        {char.abbreviation}
-                      </div>
+                      <Avatar character={char} size="lg" />
                     </div>
                     <div className="text-xs font-semibold leading-tight" style={{ color: taken ? "#aaa" : "#2C2C2A" }}>
                       {char.name}
