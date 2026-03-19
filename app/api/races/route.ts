@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Minimaal 2, maximaal 4 spelers" }, { status: 400 });
   }
 
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   if (tournament.status !== "open") {
     return NextResponse.json({ error: "Kan geen race starten tijdens finale" }, { status: 400 });

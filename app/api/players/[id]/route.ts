@@ -6,7 +6,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   const player = tournament.players.find((p) => p.id === id);
   if (!player) {

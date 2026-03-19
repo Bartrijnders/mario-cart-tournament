@@ -93,7 +93,7 @@ export default function JoinPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5 pb-28">
           {/* Naam */}
           <div className="card p-4">
             <label className="block font-bold mb-2 text-sm text-white">
@@ -175,13 +175,18 @@ export default function JoinPage() {
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={loading || isClosed || !name.trim() || !selectedCharId}
-            className="btn-primary w-full py-4 text-lg font-bold rounded-2xl disabled:opacity-40 disabled:shadow-none disabled:transform-none"
-          >
-            {loading ? "Bezig..." : "🏁 Doe mee!"}
-          </button>
+          {/* Sticky submit button */}
+          <div className="fixed bottom-0 left-0 right-0 px-4 pb-6 pt-3" style={{ background: "linear-gradient(to top, #091B2A 70%, transparent)" }}>
+            <div className="max-w-md mx-auto">
+              <button
+                type="submit"
+                disabled={loading || isClosed || !name.trim() || !selectedCharId}
+                className="btn-primary w-full py-4 text-lg font-bold rounded-2xl disabled:opacity-40 disabled:shadow-none disabled:transform-none"
+              >
+                {loading ? "Bezig..." : "🏁 Doe mee!"}
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

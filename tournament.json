@@ -1,0 +1,315 @@
+{
+  "status": "open",
+  "players": [
+    {
+      "id": "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+      "name": "Bart",
+      "character": {
+        "id": "mario",
+        "name": "Mario",
+        "color": "#E52222",
+        "abbreviation": "MA",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldMarioEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:25:53.647Z"
+    },
+    {
+      "id": "ed9d2f1e-9bca-411c-b3d0-4d5d54460534",
+      "name": "Niels",
+      "character": {
+        "id": "luigi",
+        "name": "Luigi",
+        "color": "#3F9B0B",
+        "abbreviation": "LU",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldLuigiEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:00.968Z"
+    },
+    {
+      "id": "d6b79249-ca04-428f-8e09-43d54efd4277",
+      "name": "Joey",
+      "character": {
+        "id": "peach",
+        "name": "Peach",
+        "color": "#F06FAE",
+        "abbreviation": "PE",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldPeachEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:12.228Z"
+    },
+    {
+      "id": "bf8d101b-de8a-4ea4-814c-58c15e099116",
+      "name": "Joeri",
+      "character": {
+        "id": "toad",
+        "name": "Toad",
+        "color": "#4169E1",
+        "abbreviation": "TO",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldToadEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:26.454Z"
+    },
+    {
+      "id": "ee837203-4be5-472a-88c8-907a4d88da0f",
+      "name": "Geert",
+      "character": {
+        "id": "rosalina",
+        "name": "Rosalina",
+        "color": "#6DCFF6",
+        "abbreviation": "RS",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldRosalinaEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:36.698Z"
+    },
+    {
+      "id": "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+      "name": "Jordi",
+      "character": {
+        "id": "daisy",
+        "name": "Daisy",
+        "color": "#F5C518",
+        "abbreviation": "DA",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldDaisyEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:46.475Z"
+    },
+    {
+      "id": "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+      "name": "Patrick",
+      "character": {
+        "id": "pauline",
+        "name": "Pauline",
+        "color": "#C62828",
+        "abbreviation": "PA",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldPaulineEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:26:59.122Z"
+    },
+    {
+      "id": "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+      "name": "Siem",
+      "character": {
+        "id": "yoshi",
+        "name": "Yoshi",
+        "color": "#5BAD5A",
+        "abbreviation": "YO",
+        "imageUrl": "/characters/mario%20kart%20images/240px-MKWorldYoshiEmblem.png"
+      },
+      "joinedAt": "2026-03-16T21:27:05.985Z"
+    }
+  ],
+  "races": [
+    {
+      "id": "bd750b8c-df70-4b31-8780-e164bd2e8447",
+      "raceNumber": 1,
+      "playerIds": [
+        "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+        "ed9d2f1e-9bca-411c-b3d0-4d5d54460534",
+        "d6b79249-ca04-428f-8e09-43d54efd4277",
+        "bf8d101b-de8a-4ea4-814c-58c15e099116"
+      ],
+      "results": [
+        {
+          "playerId": "ed9d2f1e-9bca-411c-b3d0-4d5d54460534",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "bf8d101b-de8a-4ea4-814c-58c15e099116",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "d6b79249-ca04-428f-8e09-43d54efd4277",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:27:41.479Z",
+      "finishedAt": "2026-03-16T21:27:56.571Z"
+    },
+    {
+      "id": "fa2b5a5a-c6d6-4966-9b4f-f2ba78b14a9c",
+      "raceNumber": 2,
+      "playerIds": [
+        "ee837203-4be5-472a-88c8-907a4d88da0f",
+        "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+        "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+        "a190334f-f0dd-4ec8-a171-01e3bbadecfe"
+      ],
+      "results": [
+        {
+          "playerId": "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "ee837203-4be5-472a-88c8-907a4d88da0f",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:27:44.574Z",
+      "finishedAt": "2026-03-16T21:28:07.441Z"
+    },
+    {
+      "id": "63dc5367-3754-4a31-8789-484562811625",
+      "raceNumber": 3,
+      "playerIds": [
+        "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+        "ee837203-4be5-472a-88c8-907a4d88da0f",
+        "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+        "ed9d2f1e-9bca-411c-b3d0-4d5d54460534"
+      ],
+      "results": [
+        {
+          "playerId": "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "ee837203-4be5-472a-88c8-907a4d88da0f",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "ed9d2f1e-9bca-411c-b3d0-4d5d54460534",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:28:10.556Z",
+      "finishedAt": "2026-03-16T21:28:22.246Z"
+    },
+    {
+      "id": "188af75d-282a-4378-911a-66bac65a82de",
+      "raceNumber": 4,
+      "playerIds": [
+        "d6b79249-ca04-428f-8e09-43d54efd4277",
+        "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+        "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+        "bf8d101b-de8a-4ea4-814c-58c15e099116"
+      ],
+      "results": [
+        {
+          "playerId": "d6b79249-ca04-428f-8e09-43d54efd4277",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "bf8d101b-de8a-4ea4-814c-58c15e099116",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:28:12.869Z",
+      "finishedAt": "2026-03-16T21:28:32.533Z"
+    },
+    {
+      "id": "0ff8e890-0182-4670-9f1e-423362b5d36c",
+      "raceNumber": 5,
+      "playerIds": [
+        "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+        "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+        "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+        "ed9d2f1e-9bca-411c-b3d0-4d5d54460534"
+      ],
+      "results": [
+        {
+          "playerId": "ed9d2f1e-9bca-411c-b3d0-4d5d54460534",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "a190334f-f0dd-4ec8-a171-01e3bbadecfe",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "c9fe5b71-e468-4f7c-baad-8087c5b77e60",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "a188d51f-a1c6-4fc5-b369-5ddeba4821db",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:28:35.251Z",
+      "finishedAt": "2026-03-16T21:28:48.794Z"
+    },
+    {
+      "id": "0b34d97a-85e7-440c-bdfd-6c4ddc4d2ace",
+      "raceNumber": 6,
+      "playerIds": [
+        "d6b79249-ca04-428f-8e09-43d54efd4277",
+        "ee837203-4be5-472a-88c8-907a4d88da0f",
+        "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+        "bf8d101b-de8a-4ea4-814c-58c15e099116"
+      ],
+      "results": [
+        {
+          "playerId": "ee837203-4be5-472a-88c8-907a4d88da0f",
+          "position": 1,
+          "points": 15
+        },
+        {
+          "playerId": "d6b79249-ca04-428f-8e09-43d54efd4277",
+          "position": 2,
+          "points": 10
+        },
+        {
+          "playerId": "ef0a07c6-342b-47a3-9af4-e03a5e73dbcc",
+          "position": 3,
+          "points": 6
+        },
+        {
+          "playerId": "bf8d101b-de8a-4ea4-814c-58c15e099116",
+          "position": 4,
+          "points": 3
+        }
+      ],
+      "status": "finished",
+      "createdAt": "2026-03-16T21:28:37.337Z",
+      "finishedAt": "2026-03-16T21:28:58.882Z"
+    }
+  ],
+  "finale": null,
+  "createdAt": "2026-03-16T15:17:12.417Z"
+}

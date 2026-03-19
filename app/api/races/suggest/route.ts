@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readTournament } from "@/lib/store";
 
 export async function GET() {
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   const activeRaces = tournament.races.filter(
     (r) => r.status === "lobby" || r.status === "racing"

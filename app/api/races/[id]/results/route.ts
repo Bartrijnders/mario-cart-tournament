@@ -10,7 +10,7 @@ export async function PUT(
   const body = await req.json();
   const { results } = body;
 
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   const raceIndex = tournament.races.findIndex((r) => r.id === id);
   if (raceIndex === -1) {

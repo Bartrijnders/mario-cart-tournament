@@ -10,22 +10,12 @@ interface TournamentData {
   standings: StandingEntry[];
 }
 
-interface ServerInfo {
-  ip: string;
-  url: string;
-}
-
 export default function LeaderboardPage() {
   const [data, setData] = useState<TournamentData | null>(null);
-  const [serverInfo, setServerInfo] = useState<ServerInfo | null>(null);
 
   async function fetchData() {
-    const [tRes, sRes] = await Promise.all([
-      fetch("/api/tournament"),
-      fetch("/api/server-info"),
-    ]);
-    setData(await tRes.json());
-    setServerInfo(await sRes.json());
+    const res = await fetch("/api/tournament");
+    setData(await res.json());
   }
 
   useEffect(() => {
@@ -46,7 +36,7 @@ export default function LeaderboardPage() {
   const finishedRaces = tournament.races.filter((r) => r.status === "finished").length;
   const activeRaces = tournament.races.filter((r) => r.status === "lobby" || r.status === "racing");
   const nextRaceNumber = tournament.races.length + 1;
-  const joinUrl = serverInfo ? `${serverInfo.url}/join` : `http://localhost:3000/join`;
+  const joinUrl = `${window.location.origin}/join`;
 
   function getPlayer(id: string) {
     return tournament.players.find((p) => p.id === id);

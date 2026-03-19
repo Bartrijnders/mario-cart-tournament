@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { readTournament, writeTournament, computeStandings } from "@/lib/store";
 
 export async function POST(req: NextRequest) {
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   if (tournament.status !== "open") {
     return NextResponse.json({ error: "Toernooi is niet open" }, { status: 400 });

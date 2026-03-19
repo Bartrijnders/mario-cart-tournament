@@ -11,7 +11,7 @@ export async function PUT(
   const body = await req.json();
   const { results } = body;
 
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   if (tournament.status !== "finale" || !tournament.finale) {
     return NextResponse.json({ error: "Geen actieve finale" }, { status: 400 });

@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Naam mag niet leeg zijn" }, { status: 400 });
   }
 
-  const tournament = readTournament();
+  const tournament = await readTournament();
 
   if (tournament.status !== "open") {
     return NextResponse.json({ error: "Inschrijvingen zijn gesloten" }, { status: 400 });

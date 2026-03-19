@@ -1,22 +1,12 @@
-import { readFileSync, writeFileSync, existsSync } from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 import { Tournament, StandingEntry } from "./types";
 
-const DATA_FILE = path.join(process.cwd(), "tournament.json");
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
-let writeLock = false;
-
-async function withLock<T>(fn: () => Promise<T>): Promise<T> {
-  while (writeLock) {
-    await new Promise((r) => setTimeout(r, 10));
-  }
-  writeLock = true;
-  try {
-    return await fn();
-  } finally {
-    writeLock = false;
-  }
-}
+const TOURNAMENT_KEY = "tournament";
 
 const DEFAULT_TOURNAMENT: Tournament = {
   status: "open",
@@ -26,19 +16,13 @@ const DEFAULT_TOURNAMENT: Tournament = {
   createdAt: new Date().toISOString(),
 };
 
-export function readTournament(): Tournament {
-  if (!existsSync(DATA_FILE)) {
-    writeFileSync(DATA_FILE, JSON.stringify(DEFAULT_TOURNAMENT, null, 2));
-    return DEFAULT_TOURNAMENT;
-  }
-  const raw = readFileSync(DATA_FILE, "utf-8");
-  return JSON.parse(raw) as Tournament;
+export async function readTournament(): Promise<Tournament> {
+  const data = await redis.get<Tournament>(TOURNAMENT_KEY);
+  return data ?? DEFAULT_TOURNAMENT;
 }
 
 export async function writeTournament(tournament: Tournament): Promise<void> {
-  await withLock(async () => {
-    writeFileSync(DATA_FILE, JSON.stringify(tournament, null, 2));
-  });
+  await redis.set(TOURNAMENT_KEY, tournament);
 }
 
 export function computeStandings(tournament: Tournament): StandingEntry[] {
